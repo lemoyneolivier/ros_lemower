@@ -1,0 +1,4 @@
+source;share/lemower_package/local_setup.bash
+source;share/lemower_package/local_setup.dsv
+source;share/lemower_package/local_setup.sh
+source;share/lemower_package/local_setup.zsh

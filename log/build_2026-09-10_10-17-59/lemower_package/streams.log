@@ -1,0 +1,30 @@
+[0.020s] Invoking command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/kilted DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package -- -j4 -l4
+[0.066s] -- Found ament_cmake: 2.7.5 (/opt/ros/kilted/share/ament_cmake/cmake)
+[0.425s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.438s] -- Found ament_lint_auto: 0.19.3 (/opt/ros/kilted/share/ament_lint_auto/cmake)
+[0.634s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.634s] -- Configured cppcheck include dirs: 
+[0.634s] -- Configured cppcheck exclude dirs and/or files: 
+[0.637s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.637s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.642s] -- Added test 'lint_cmake' to check CMake code style
+[0.645s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.663s] -- Added test 'uncrustify' to check C / C++ code style
+[0.663s] -- Configured uncrustify additional arguments: 
+[0.666s] -- Added test 'xmllint' to check XML markup files
+[0.668s] -- Configuring done (0.6s)
+[0.677s] -- Generating done (0.0s)
+[0.680s] -- Build files have been written to: /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package
+[0.724s] Invoked command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/kilted DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package -- -j4 -l4
+[0.743s] Invoking command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/kilted DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package
+[0.758s] -- Install configuration: ""
+[0.758s] -- Execute custom install script
+[0.759s] [31mCMake Error at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:105 (message):
+[0.759s]   ament_cmake_symlink_install_directory() can't find
+[0.759s]   '/home/olivier/lemower/dev_ws/src/lemower_package/launch'
+[0.759s] Call Stack (most recent call first):
+[0.759s]   ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:323 (ament_cmake_symlink_install_directory)
+[0.759s]   cmake_install.cmake:46 (include)
+[0.760s] 
+[0.760s] [0m
+[0.762s] Invoked command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/kilted DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package

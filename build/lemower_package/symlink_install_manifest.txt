@@ -1,3 +1,5 @@
+/home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/launch/gazebo.launch.py
+/home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/launch/rsp.launch.py
 /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/ament_index/resource_index/package_run_dependencies/lemower_package
 /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/ament_index/resource_index/parent_prefix_path/lemower_package
 /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/environment/ament_prefix_path.sh

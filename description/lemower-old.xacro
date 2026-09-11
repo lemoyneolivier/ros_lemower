@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<!-- Description of the LEMOWER robot with XACRO to avoid repeating data -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="lemower">
+
+    <!-- This will include all the contents of example_include.xacro first. Go check it out! -->
+    <xacro:include filename="lemower_include.xacro" />
+
+    <!-- Then base link is aligned with the wheels
+           Former position = <origin xyz="-0.07 -0.095 -0.039" rpy="0 1.5708 0"/>
+     -->
+    <link name="base_link">
+    </link>
+
+    <!-- Lien entre base et robot_base l'origine de robot_base est arrière centre bas -->
+    <joint name="robot_base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="robot_base"/>
+        <origin xyz="0 0.065 0.0365" rpy="0 0 0"/>
+    </joint>
+    <link name="robot_base">
+        <visual>
+            <geometry>
+                <box size="0.32 0.2 0.04"/>
+            </geometry>
+            <material name="blue"/>
+            <origin xyz="0.16 0.01 0.02" rpy="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.32 0.2 0.04"/>
+            </geometry>
+        </collision>     
+        <xacro:inertial_box mass="1.5" x="0.32" y="0.2" z="0.04">
+            <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+    <joint name="base_to_elec" type="fixed">
+        <parent link="robot_base"/>
+        <child link="electronics"/>
+        <origin xyz="0 -0.085 0.04" rpy="0 0 0"/>
+    </joint>
+    <link name="electronics">
+        <visual>
+            <geometry>
+                <box size="0.2 0.15 0.04"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="blue"/>
+        </visual> 
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.2 0.15 0.04"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.4" x="0.2" y="0.15" z="0.04">
+            <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+    <joint name="elec_to_lidar" type="fixed">
+        <parent link="electronics"/>
+        <child link="lidar"/>
+        <origin xyz="0 0 0.03" rpy="0 0 0"/>
+    </joint>
+    <link name="lidar">
+        <visual>
+            <geometry>
+                <box size="0.06 0.05 0.03"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="black"/>
+        </visual> 
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.06 0.05 0.03"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.1" x="0.06" y="0.05" z="0.03">
+            <origin xyz="0 0 0.075" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+    <joint name="robot_base_to_bras_decoupe" type="revolute">
+        <parent link="robot_base"/>
+        <child link="bras decoupe"/>
+        <origin xyz="0 0.160 0.01" rpy="0 0 0"/>
+        <limit effort="1000.0" lower="-0.548" upper="0.548" velocity="0.5"/>      
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="bras decoupe">
+        <visual>
+            <geometry>
+                <box size="0.003 0.06 0.01"/>
+            </geometry>
+            <origin xyz="0 0.025 0" rpy="0 0 0"/>
+            <material name="blue"/>
+        </visual> 
+        <collision>
+            <origin xyz="0 0.025 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.003 0.06 0.01"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.05" x="0.003" y="0.06" z="0.01">
+            <origin xyz="0.0015 0.03 0.005" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+    <joint name="bras_decoupe_to_decoupe" type="revolute">
+        <parent link="bras decoupe"/>
+        <child link="decoupe"/>
+        <axis xyz="1 0 0"/>
+        <origin xyz="0 0.05 0" rpy="0 0 0"/>
+        <limit effort="1000.0" lower="-0.548" upper="0.548" velocity="0.5"/>
+    </joint>
+    <link name="decoupe">
+        <visual>
+            <geometry>
+                <box size="0.3 0.1 0.06"/>
+            </geometry>
+            <origin xyz="0 0.045 0" rpy="0 0 0"/>
+            <material name="red"/>
+        </visual> 
+        <collision>
+            <origin xyz="0 0.045 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.1 0.06"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x="0.3" y="0.1" z="0.06">
+            <origin xyz="0.15 0.05 0.03" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+    <joint name="robot_base_to_motor_gauche" type="fixed">
+        <parent link="robot_base"/>
+        <child link="motor gauche"/>
+        <origin xyz="-0.07 -0.095 -0.039" rpy="0 1.5708 0"/>
+    </joint>
+    <link name="motor gauche">
+        <visual>
+            <geometry>
+                <cylinder length="0.057" radius="0.0185"/>
+            </geometry>
+            <material name="red"/>
+        </visual> 
+        <collision>
+            <geometry>
+                <cylinder length="0.057" radius="0.0185"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.15" length="0.057" radius="0.0185">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+    <joint name="robot_base_to_motor_droite" type="fixed">
+        <parent link="robot_base"/>
+        <child link="motor droite"/>
+        <origin xyz="0.07 -0.095 -0.039" rpy="0 1.5708 0"/>
+    </joint>
+    <link name="motor droite">
+        <visual>
+            <geometry>
+                <cylinder length="0.057" radius="0.0185"/>
+            </geometry>
+            <material name="red"/>
+        </visual> 
+        <collision>
+            <geometry>
+                <cylinder length="0.057" radius="0.0185"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.15" length="0.057" radius="0.0185">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <link name="Roue arrière gauche">
+        <visual>
+            <geometry>
+                <cylinder length="0.045" radius="0.048"/>
+            </geometry>
+            <material name="green"/>
+        </visual> 
+        <collision>
+            <geometry>
+                <cylinder length="0.045" radius="0.048"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.2" length="0.045" radius="0.048">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+    <link name="Roue arrière droite">
+        <visual>
+            <geometry>
+                <cylinder length="0.045" radius="0.048"/>
+            </geometry>
+            <material name="green"/>
+        </visual> 
+        <collision>
+            <geometry>
+                <cylinder length="0.045" radius="0.048"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.2" length="0.045" radius="0.048">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+    <link name="Roue avant gauche">
+        <visual>
+            <geometry>
+                <cylinder length="0.045" radius="0.034"/>
+            </geometry>
+            <material name="green"/>
+        </visual> 
+        <collision>
+            <geometry>
+                <cylinder length="0.045" radius="0.034"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.2" length="0.045" radius="0.034">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+    <link name="Roue avant droite">
+        <visual>
+            <geometry>
+                <cylinder length="0.045" radius="0.034"/>
+            </geometry>
+            <material name="green"/>
+        </visual> 
+        <collision>
+            <geometry>
+                <cylinder length="0.045" radius="0.034"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.2" length="0.045" radius="0.034">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <joint name="motor_to_roue_arriere_gauche" type="continuous">
+        <parent link="motor gauche"/>
+        <child link="Roue arrière gauche"/>
+        <origin xyz="0 0 -0.065" rpy="0 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+    <joint name="motor_to_roue_arriere_droite" type="continuous">
+        <parent link="motor droite"/>
+        <child link="Roue arrière droite"/>
+        <origin xyz="0 0 0.065" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <joint name="robot_base_to_roue_avant_gauche" type="continuous">
+        <parent link="robot_base"/>
+        <child link="Roue avant gauche"/>
+        <origin xyz="-0.125 0.108 -0.0515" rpy="0 1.5708 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+    <joint name="robot_base_to_roue_avant_droite" type="continuous">
+        <parent link="robot_base"/>
+        <child link="Roue avant droite"/>
+        <origin xyz="0.125 0.108 -0.0515" rpy="0 1.5708 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <xacro:include filename="lemower_gazebo.xacro" />
+</robot>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- This file demonstrates the use of some <gazebo> tags -->
+
+    <!-- To include it add the following line -->
+    <!-- <xacro:include filename="example_gazebo.xacro" /> -->
+
+    <!-- Gazebo is unable to use the same <material> tags that are already in the URDF (that RViz uses). -->
+    <!-- Instead, we need to add gazebo tags for our links that refer to Gazebo materials -->
+
+
+    <gazebo reference="robot_base">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="electronics">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="lidar">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="bras decoupe">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="decoupe">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="motor gauche">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="motor droite">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="Roue arrière gauche">
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+    <gazebo reference="Roue arrière droite">
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+    <gazebo reference="Roue avant gauche">
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+    <gazebo reference="Roue avant droite">
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+
+    <gazebo>
+          <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
+
+            <!-- Wheel Information -->
+            <left_joint>base_to_roue_arriere_gauche</left_joint>
+            <right_joint>base_to_roue_arriere_droite</right_joint>
+            <wheel_separation>0.223</wheel_separation>
+            <wheel_radius>0.048</wheel_radius>
+
+            <!-- Input -->
+            <topic>cmd_vel</topic>
+
+            <!-- Output -->
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_link</child_frame_id>
+            <odom_topic>odom</odom_topic>            
+            <tf_topic>tf</tf_topic>
+
+        </plugin>
+    </gazebo>
+
+
+    <!-- Gazebo requires the use of plugins to interact with other systems such as ROS. -->
+
+
+    <!-- This plugin will publish the joint_states for the selected joints 
+            (which robot_state_publisher can then use to broadcast the approprate tf). -->
+
+    <gazebo>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+            <topic>/joint_states</topic> <!-- Nom du topic côté Gazebo -->
+            <update_rate>30</update_rate>
+            <joint_name>robot_base_to_bras_decoupe</joint_name>
+            <joint_name>bras_decoupe_to_decoupe</joint_name>
+            <joint_name>base_to_roue_arriere_gauche</joint_name>
+            <joint_name>base_to_roue_arriere_droite</joint_name>
+        </plugin>
+    </gazebo>
+
+
+    <!-- This plugin will read a JointTrajectory message from the /set_joint_trajectory topic 
+            and move the machine accordingly. It's a bit clunky but it works. -->
+    <!-- You'll probably want to add damping to the joints to stop them it flopping around. 
+            e.g. <dynamics damping="10.0" friction="10.0"/> -->
+    <!-- Here's an example message to publish to test it:
+            ros2 topic pub -1 /set_joint_trajectory trajectory_msgs/msg/JointTrajectory  '{header: {frame_id: world}, joint_names: [slider_joint, arm_joint], points: [  {positions: {0.8,0.6}} ]}' -->
+
+    <gazebo>
+        <plugin filename="gz-sim-joint-trajectory-controller-system" name="gz::sim::systems::JointTrajectoryController">
+            <topic>/model/lemower/joint_trajectory</topic>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="Roue avant droite">
+        <mu value="0"/>
+        <mu2 value="1"/>
+    </gazebo>
+
+    <gazebo reference="Roue avant gauche">
+        <mu value="0"/>
+        <mu2 value="1"/>
+    </gazebo>
+
+</robot>

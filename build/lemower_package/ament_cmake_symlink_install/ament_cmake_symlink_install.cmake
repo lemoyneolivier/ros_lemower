@@ -315,8 +315,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "DESTINATION" "share/lemower_package")
-ament_cmake_symlink_install_directory("/home/olivier/lemower/dev_ws/src/lemower_package" DIRECTORY "launch" "DESTINATION" "share/lemower_package")
+# install(DIRECTORY "launch" "description" "config" "DESTINATION" "share/lemower_package")
+ament_cmake_symlink_install_directory("/home/olivier/lemower/dev_ws/src/lemower_package" DIRECTORY "launch" "description" "config" "DESTINATION" "share/lemower_package")
 
 # install(FILES "/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/lemower_package" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/olivier/lemower/dev_ws/src/lemower_package" FILES "/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/lemower_package" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

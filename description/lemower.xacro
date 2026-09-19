@@ -81,12 +81,10 @@
             <origin xyz="0 0 0.015" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
-    <joint name="robot_base_to_bras_decoupe" type="revolute">
+    <joint name="robot_base_to_bras_decoupe" type="fixed">
         <parent link="robot_base"/>
         <child link="bras decoupe"/>
         <origin xyz="0.31 0 0.03" rpy="0 0 0"/>
-        <limit effort="1000.0" lower="-0.548" upper="0.548" velocity="0.5"/>      
-        <axis xyz="0 1 0"/>
     </joint>
     <link name="bras decoupe">
         <visual>
@@ -106,12 +104,10 @@
             <origin xyz="0.03 0.0015 0.005" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
-    <joint name="bras_decoupe_to_decoupe" type="revolute">
+    <joint name="bras_decoupe_to_decoupe" type="fixed">
         <parent link="bras decoupe"/>
         <child link="decoupe"/>
-        <axis xyz="0 1 0"/>
         <origin xyz="0.05 0 0" rpy="0 0 0"/>
-        <limit effort="1000.0" lower="-0.548" upper="0.548" velocity="0.5"/>
     </joint>
     <link name="decoupe">
         <visual>

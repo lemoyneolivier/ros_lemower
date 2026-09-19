@@ -1,0 +1,66 @@
+[0.028s] Invoking command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package -- -j4 -l4
+[0.080s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.451s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.469s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.735s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.736s] -- Configured cppcheck include dirs: 
+[0.736s] -- Configured cppcheck exclude dirs and/or files: 
+[0.746s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.746s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.765s] -- Added test 'lint_cmake' to check CMake code style
+[0.776s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.854s] -- Added test 'uncrustify' to check C / C++ code style
+[0.854s] -- Configured uncrustify additional arguments: 
+[0.864s] -- Added test 'xmllint' to check XML markup files
+[0.866s] -- Configuring done (0.8s)
+[0.878s] -- Generating done (0.0s)
+[0.881s] -- Build files have been written to: /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package
+[0.926s] Invoked command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package -- -j4 -l4
+[0.945s] Invoking command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package
+[0.960s] -- Install configuration: ""
+[0.961s] -- Execute custom install script
+[0.962s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/launch/gazebo.launch.py
+[0.962s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/launch/rsp.launch.py
+[0.963s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/Construction cone/construction_cone/materials/textures/Construction_Cone_Diffuse.png
+[0.981s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/Construction cone/construction_cone/meshes/construction_cone.dae
+[1.000s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/Construction cone/construction_cone/model-1_3.sdf
+[1.019s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/Construction cone/construction_cone/model-1_4.sdf
+[1.037s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/Construction cone/construction_cone/model.config
+[1.055s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/Construction cone/construction_cone/model.sdf
+[1.072s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/materials/textures/Construction_Barrel_Diffuse.png
+[1.090s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/materials/textures/Construction_Barrel_Spec.png
+[1.111s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/meshes/construction_barrel.dae
+[1.129s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/model-1_3.sdf
+[1.147s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/model-1_4.sdf
+[1.164s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/model.config
+[1.182s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/construction_barrel/model.sdf
+[1.200s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/materials/textures/jersey_barrier.png
+[1.220s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/materials/textures/jersey_barrier_diffuse.png
+[1.238s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/materials/textures/jersey_barrier_spec.png
+[1.255s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/meshes/jersey_barrier.dae
+[1.273s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/model-1_4.sdf
+[1.290s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/model.config
+[1.309s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/jersey_barrier/model.sdf
+[1.328s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/lemower-old.xacro
+[1.346s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/lemower.urdf
+[1.364s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/lemower.xacro
+[1.382s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/lemower_gazebo.xacro
+[1.401s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/lemower_include.xacro
+[1.421s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/mon_monde.sdf
+[1.439s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/description/my_lemower.urdf
+[1.458s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/ament_index/resource_index/package_run_dependencies/lemower_package
+[1.458s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/ament_index/resource_index/parent_prefix_path/lemower_package
+[1.458s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/environment/ament_prefix_path.sh
+[1.458s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/environment/ament_prefix_path.dsv
+[1.459s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/environment/path.sh
+[1.459s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/environment/path.dsv
+[1.459s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/local_setup.bash
+[1.460s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/local_setup.sh
+[1.460s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/local_setup.zsh
+[1.460s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/local_setup.dsv
+[1.461s] -- Symlinking: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/package.dsv
+[1.480s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/ament_index/resource_index/packages/lemower_package
+[1.480s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/cmake/lemower_packageConfig.cmake
+[1.480s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/cmake/lemower_packageConfig-version.cmake
+[1.480s] -- Up-to-date symlink: /home/olivier/lemower/dev_ws/src/lemower_package/install/lemower_package/share/lemower_package/package.xml
+[1.484s] Invoked command in '/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package

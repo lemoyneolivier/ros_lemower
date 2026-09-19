@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_files("/home/olivier/lemower/dev_ws/src/lemower_package" FILES "/home/olivier/lemower/dev_ws/src/lemower_package/build/lemower_package/ament_cmake_index/share/ament_index/resource_index/packages/lemower_package" "DESTINATION" "share/ament_index/resource_index/packages")

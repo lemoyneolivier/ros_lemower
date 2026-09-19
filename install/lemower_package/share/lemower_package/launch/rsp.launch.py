@@ -1,1 +1,0 @@
-/home/olivier/lemower/dev_ws/src/lemower_package/launch/rsp.launch.py

@@ -60,6 +60,21 @@ def generate_launch_description():
 		f'config_file:={bridge_params}',]
     )
 
+    twist_mux_config = os.path.join(get_package_share_directory(package_name),'config', 'twist_mux.yaml')
+
+    twist_mux = Node(
+        package='twist_mux',
+        executable='twist_mux',
+        output='screen',
+        remappings={('/cmd_vel_out', '/cmd_vel')},
+        parameters=[
+            {'use_sim_time': True},
+            {'use_stamped': True},
+            twist_mux_config])
+
+    
+
+	
 
     # Run the node
     return LaunchDescription([
@@ -68,7 +83,8 @@ def generate_launch_description():
         gazebo_server,
 	gazebo_client,
 	gz_bridge_node,
-	spawn_entity
+	spawn_entity,
+	twist_mux
     ])
 
 

@@ -10,73 +10,6 @@
     <!-- Instead, we need to add gazebo tags for our links that refer to Gazebo materials -->
 
 
-    <gazebo reference="robot_base">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-
-    <gazebo reference="electronics">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-
-    <gazebo reference="lidar">
-        <material>Gazebo/Black</material>
-    </gazebo>
-
-    <gazebo reference="bras decoupe">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-
-    <gazebo reference="decoupe">
-        <material>Gazebo/Red</material>
-    </gazebo>
-
-    <gazebo reference="motor gauche">
-        <material>Gazebo/Red</material>
-    </gazebo>
-
-    <gazebo reference="motor droite">
-        <material>Gazebo/Red</material>
-    </gazebo>
-
-    <gazebo reference="Roue arrière gauche">
-        <material>Gazebo/Green</material>
-    </gazebo>
-
-    <gazebo reference="Roue arrière droite">
-        <material>Gazebo/Green</material>
-    </gazebo>
-
-    <gazebo reference="Roue avant gauche">
-        <material>Gazebo/Green</material>
-    </gazebo>
-
-    <gazebo reference="Roue avant droite">
-        <material>Gazebo/Green</material>
-    </gazebo>
-
-
-    <gazebo>
-          <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
-
-            <!-- Wheel Information -->
-            <left_joint>base_to_roue_arriere_gauche</left_joint>
-            <right_joint>base_to_roue_arriere_droite</right_joint>
-            <wheel_separation>0.223</wheel_separation>
-            <wheel_radius>0.048</wheel_radius>
-
-            <!-- Input -->
-            <topic>cmd_vel</topic>
-
-            <!-- Output -->
-            <frame_id>odom</frame_id>
-            <child_frame_id>base_link</child_frame_id>
-            <odom_topic>odom</odom_topic>            
-            <tf_topic>tf</tf_topic>
-
-        </plugin>
-    </gazebo>
-
-
     <!-- Gazebo requires the use of plugins to interact with other systems such as ROS. -->
 
 
@@ -102,37 +35,37 @@
     </gazebo>
 
 
-    <!-- This plugin will read a JointTrajectory message from the /set_joint_trajectory topic 
-            and move the machine accordingly. It's a bit clunky but it works. -->
-    <!-- You'll probably want to add damping to the joints to stop them it flopping around. 
-            e.g. <dynamics damping="10.0" friction="10.0"/> -->
-    <!-- Here's an example message to publish to test it:
-            ros2 topic pub -1 /set_joint_trajectory trajectory_msgs/msg/JointTrajectory  '{header: {frame_id: world}, joint_names: [slider_joint, arm_joint], points: [  {positions: {0.8,0.6}} ]}' -->
-
-    <!-- Gazebo Parameters -->
-    <gazebo reference="Roue arrière gauche">
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
+    <gazebo reference="lidar">
+        <sensor name="laser" type="gpu_lidar">
+            <pose> 0 0 0 0 0 0 </pose>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <topic>scan</topic>
+            <gz_frame_id>lidar</gz_frame_id>
+            <lidar>
+                <scan>
+                    <horizontal>
+                    <samples>720</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-3.14</min_angle>
+                    <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.05</min>
+                    <max>10.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+                <frame_id>lidar</frame_id>
+            </lidar>
+            <always_on>1</always_on>
+            <visualize>true</visualize>
+        </sensor>
     </gazebo>
-
-    <gazebo reference="Roue arrière droite">
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
-    </gazebo>
-
-    <gazebo reference="base_link">
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
-    </gazebo>
-
-    <gazebo reference="Roue avant droite">
-        <mu1>0.00001</mu1>
-        <mu2>0.00001</mu2>
-    </gazebo>
-
-    <gazebo reference="Roue avant gauche">
-        <mu1>0.00001</mu1>
-        <mu2>0.00001</mu2>
-    </gazebo>
-
 </robot>

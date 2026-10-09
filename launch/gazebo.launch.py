@@ -16,7 +16,7 @@ def generate_launch_description():
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true'}.items()
+                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
 
     world = LaunchConfiguration('world')
@@ -72,9 +72,21 @@ def generate_launch_description():
             {'use_stamped': True},
             twist_mux_config])
 
-    
+    diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "diff_cont",
+            '--controller-ros-args',
+            '-r /diff_cont/cmd_vel:=/cmd_vel'
+        ],
+    )
 
-	
+    joint_broad_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_broad"],
+    )
 
     # Run the node
     return LaunchDescription([
@@ -84,7 +96,9 @@ def generate_launch_description():
 	gazebo_client,
 	gz_bridge_node,
 	spawn_entity,
-	twist_mux
+	twist_mux,
+        diff_drive_spawner,
+        joint_broad_spawner
     ])
 
 

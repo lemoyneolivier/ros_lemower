@@ -2,6 +2,12 @@
 <!-- Description of the LEMOWER robot with XACRO to avoid repeating data -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="lemower">
 
+
+    <xacro:arg name="sim_mode" default="false"/>
+
+    <!-- gestion des parametres -->
+    <xacro:arg name="use_ros2_control" default="true"/>	
+
     <!-- This will include all the contents of example_include.xacro first. Go check it out! -->
     <xacro:include filename="lemower_include.xacro" />
 
@@ -10,7 +16,13 @@
 
     <xacro:include filename="lemower_gazebo.xacro" /> 
 
-    <xacro:include filename="ros2_control.xacro"/>
-    <!-- <xacro:include filename="lemower_gz_control.xacro" /> -->
+    <!-- Switch between ros2_control and Gazebo integrated diff-drive control -->
+    <xacro:if value="$(arg use_ros2_control)">
+        <xacro:include filename="ros2_control.xacro" />
+    </xacro:if>
+
+    <xacro:unless value="$(arg use_ros2_control)">
+        <xacro:include filename="lemower_gz_control.xacro" />
+    </xacro:unless>
 
 </robot>
